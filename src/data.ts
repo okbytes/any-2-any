@@ -138,8 +138,8 @@ export const destination = [
     "imgs/mysql.svg",
     "imgs/gsheets.svg",
     "imgs/fbaudience.svg",
-    "imgs/pipedrive.svg",
     "imgs/stripe.svg",
+    "imgs/pipedrive.svg",
     "imgs/salesforce.svg",
     "imgs/intercom.svg",
     "imgs/airtable.svg",
@@ -151,7 +151,7 @@ export const destination = [
     "imgs/webhook.svg",
     "imgs/shipbob.svg",
     "imgs/dynamodb.svg",
+    "imgs/snowflake.svg",
     "imgs/zendesk_support.svg",
-    "imgs/redshift.svg",
-    "imgs/snowflake.svg"
+    "imgs/redshift.svg"
 ]
