@@ -106,6 +106,7 @@ export const source = [
     "imgs/synapse.svg",
     "imgs/csv.svg",
     "imgs/dynamodb.svg",
+    "imgs/salesforce.svg",
     "imgs/snowflake.svg",
     "imgs/amplitude.svg",
     "imgs/shipbob.svg",
@@ -113,7 +114,6 @@ export const source = [
     "imgs/affinity.svg",
     "imgs/mongodb.svg",
     "imgs/awsathena.svg",
-    "imgs/salesforce.svg",
     "imgs/stripe.svg",
     "imgs/api.svg",
     "imgs/databricks.svg",
@@ -140,6 +140,7 @@ export const destination = [
     "imgs/fbaudience.svg",
     "imgs/pipedrive.svg",
     "imgs/stripe.svg",
+    "imgs/salesforce.svg",
     "imgs/intercom.svg",
     "imgs/airtable.svg",
     "imgs/marketo.svg",
@@ -152,6 +153,5 @@ export const destination = [
     "imgs/dynamodb.svg",
     "imgs/zendesk_support.svg",
     "imgs/redshift.svg",
-    "imgs/salesforce.svg",
     "imgs/snowflake.svg"
 ]
