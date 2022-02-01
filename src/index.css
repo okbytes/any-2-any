@@ -1,0 +1,33 @@
+.App {
+  height: 35vh;
+  display: grid;
+  place-content: center;
+  padding: 40px;
+  font-family: sans-serif;
+}
+
+.heading {
+  width: 100%;
+  display: flex;
+  align-items: center;
+}
+
+h1 {
+  pointer-events: none;
+}
+
+.slot {
+  position: relative;
+  margin: 0 10px;
+  width: 50px;
+  height: 50px;
+}
+
+img {
+  position: absolute;
+  width: 50px;
+}
+
+img:hover {
+  cursor: pointer;
+}
