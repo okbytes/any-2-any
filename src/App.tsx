@@ -2,70 +2,34 @@ import * as React from "react"
 import {Slot} from "./slot"
 import {useInterval} from "./use-interval"
 
-const logos = [
-    "imgs/affinity.svg",
-    "imgs/airtable.svg",
-    "imgs/amplitude.svg",
-    "imgs/api.svg",
-    "imgs/awsathena.svg",
-    "imgs/azuresql.svg",
-    "imgs/bigquery.svg",
-    "imgs/chargebee.svg",
-    "imgs/cosmosdb.svg",
-    "imgs/csv.svg",
-    "imgs/databricks.svg",
-    "imgs/dialpad.svg",
-    "imgs/dynamodb.svg",
-    "imgs/fbaudience.svg",
-    "imgs/freshdesk.svg",
-    "imgs/front.svg",
-    "imgs/gohighlevel.svg",
-    "imgs/googleads.svg",
-    "imgs/gsheets.svg",
-    "imgs/harmonic.svg",
-    "imgs/hubspot.svg",
-    "imgs/intercom.svg",
-    "imgs/iterable.svg",
-    "imgs/klaviyo.svg",
-    "imgs/livechat.svg",
-    "imgs/marketo.svg",
-    "imgs/mongodb.svg",
-    "imgs/mysql.svg",
-    "imgs/pipedrive.svg",
-    "imgs/postgresql.svg",
-    "imgs/redshift.svg",
-    "imgs/salesforce.svg",
-    "imgs/segment.svg",
-    "imgs/shipbob.svg",
-    "imgs/smartsheet.svg",
-    "imgs/snowflake.svg",
-    "imgs/stripe.svg",
-    "imgs/synapse.svg",
-    "imgs/webhook.svg",
-    "imgs/zendesk_support.svg"
-]
-
 const h1Styles = "text-7xl font-bold pointer-events-none"
 
-const CYCLE = 1500
+const MS_CYCLE = 1500 // in ms
+const MS_PAUSE = 4000 // in ms
+const MS_ITEM = 250 // in ms
 
-const PAUSE = 4000
-
-const ITEM = 250
+const PAUSE = {item: null, main: MS_PAUSE, type: "pause"}
+const CYCLE = {item: MS_ITEM, main: MS_CYCLE, type: "cycle"}
 
 export default function App() {
-    const [delay, setDelay] = React.useState<number | null>(ITEM)
+    const [delay, setDelay] = React.useState<typeof PAUSE | typeof CYCLE>(CYCLE)
     const [hover, setHover] = React.useState(false)
+
+    React.useEffect(() => {
+        if (hover) {
+            setDelay(PAUSE)
+        }
+    }, [hover])
 
     useInterval(
         () => {
-            if (delay) {
-                setDelay(null)
+            if (delay.type === "cycle") {
+                setDelay(PAUSE)
             } else {
-                setDelay(ITEM)
+                setDelay(CYCLE)
             }
         },
-        hover ? null : CYCLE
+        hover ? null : delay.main
     )
 
     return (
@@ -73,11 +37,11 @@ export default function App() {
             <div className="w-full flex items-center">
                 <h1 className={h1Styles}>Sync</h1>
 
-                <Slot spin="down" delay={delay} hover={hover} setHover={setHover} />
+                <Slot spin="down" delay={delay.item} hover={hover} setHover={setHover} />
 
                 <h1 className={h1Styles}>to</h1>
 
-                <Slot spin="up" delay={delay} hover={hover} setHover={setHover} />
+                <Slot spin="up" delay={delay.item} hover={hover} setHover={setHover} />
             </div>
 
             <h2 className="text-4xl text-gray-300 font-medium">

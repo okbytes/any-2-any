@@ -46,8 +46,8 @@ const logos = [
     "imgs/zendesk_support.svg"
 ]
 
-const TRAVEL = 72
-const SCALING = 0.125
+const TRAVEL = 72 // in px
+const TRAVEL_SCALE = 0.125 // % as decimal
 
 interface SlotProps {
     delay: number | null
@@ -63,13 +63,13 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
 
     const direction = spin === "up" ? -1 : 1
 
-    const spinit = (newDirection: number) => {
+    const paginate = (newDirection: number) => {
         setPage(prev => prev + newDirection)
     }
 
     useInterval(
         () => {
-            spinit(direction)
+            paginate(direction)
         },
         hover ? null : delay
     )
@@ -85,7 +85,7 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
                     variants={{
                         enter: (direction: number) => ({
                             y: direction > 0 ? -TRAVEL : TRAVEL,
-                            scale: SCALING,
+                            scale: TRAVEL_SCALE,
                             zIndex: 0,
                             opacity: 0
                         }),
@@ -97,7 +97,7 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
                         },
                         exit: (direction: number) => ({
                             y: direction < 0 ? -TRAVEL : TRAVEL,
-                            scale: SCALING,
+                            scale: TRAVEL_SCALE,
                             zIndex: 0,
                             opacity: 0
                         }),
