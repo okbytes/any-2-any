@@ -33,20 +33,54 @@ export default function App() {
     )
 
     return (
-        <div className="h-[80vh] grid place-content-center p-10 font-sans space-y-6">
-            <div className="w-full flex items-center">
-                <h1 className={h1Styles}>Sync</h1>
+        <>
+            <div className="px-10 mx-auto max-w-5xl">
+                <nav className="mb-20 py-8 flex items-center justify-between">
+                    <img src="/assets/polytomic.svg" className="w-8 h-8" />
+                    <div className="flex items-center space-x-6">
+                        <p className="text-gray-300 font-semibold">Product</p>
+                        <p className="text-gray-300 font-semibold">Use cases</p>
+                        <p className="text-gray-300 font-semibold">Integrations</p>
+                        <p className="text-gray-300 font-semibold">Customers</p>
+                        <p className="text-gray-300 font-semibold">Resources</p>
+                        <div className="space-x-2">
+                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold bg-indigo-600">
+                                Get a demo
+                            </button>
 
-                <Slot spin="down" delay={delay.item} hover={hover} setHover={setHover} />
+                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold bg-gray-800">
+                                Log in
+                            </button>
+                        </div>
+                    </div>
+                </nav>
+                <div className="font-sans">
+                    <div className="w-full flex items-center">
+                        <h1 className={h1Styles}>Sync</h1>
 
-                <h1 className={h1Styles}>to</h1>
+                        <Slot spin="down" delay={delay.item} hover={hover} setHover={setHover} />
 
-                <Slot spin="up" delay={delay.item} hover={hover} setHover={setHover} />
+                        <h1 className={h1Styles}>to</h1>
+
+                        <Slot spin="up" delay={delay.item} hover={hover} setHover={setHover} />
+                    </div>
+
+                    <h2 className="mt-6 text-4xl text-gray-300 font-medium">
+                        The one platform to sync any data anywhere.
+                    </h2>
+
+                    <div className="mt-16 flex items-center space-x-2">
+                        <button className="h-11 px-6 border-2 border-indigo-600 rounded text-white font-semibold bg-indigo-600">
+                            Get a demo
+                        </button>
+                        <p className="text-gray-300">or</p>
+                        <button className="h-11 px-6 border-2 border-indigo-600 rounded text-white font-semibold bg-gray-800">
+                            Start free trial
+                        </button>
+                    </div>
+                </div>
             </div>
-
-            <h2 className="text-4xl text-gray-300 font-medium">
-                The one platform to sync any data anywhere.
-            </h2>
-        </div>
+            <img src="/assets/waves.svg" className="w-full" />
+        </>
     )
 }

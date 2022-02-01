@@ -75,7 +75,7 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
     )
 
     return (
-        <div className="relative my-0 mx-4 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
+        <div className="relative my-0 mx-6 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
             <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                     key={page}
