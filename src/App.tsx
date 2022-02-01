@@ -51,11 +51,11 @@ const logos = [
 const travel = 50
 
 interface SlotProps {
-    delay?: number | null
-    spin?: "up" | "down"
+    delay: number | null
+    spin: "up" | "down"
 }
 
-function Slot({delay = 150, spin = "down"}: SlotProps) {
+function Slot({delay, spin}: SlotProps) {
     const [page, setPage] = React.useState(0)
     const [hovered, setHovered] = React.useState(false)
 
@@ -127,16 +127,26 @@ function Slot({delay = 150, spin = "down"}: SlotProps) {
 }
 
 export default function App() {
+    const [delay, setDelay] = React.useState<number | null>(150)
+
+    useInterval(() => {
+        if (delay) {
+            setDelay(null)
+        } else {
+            setDelay(150)
+        }
+    }, 1500)
+
     return (
         <div className="App">
             <div className="heading">
                 <h1>Any</h1>
                 <div className="slot">
-                    <Slot />
+                    <Slot spin="down" delay={delay} />
                 </div>
                 <h1>to any</h1>
                 <div className="slot">
-                    <Slot spin="up" />
+                    <Slot spin="up" delay={delay} />
                 </div>
             </div>
         </div>
