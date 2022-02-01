@@ -1,6 +1,5 @@
 import * as React from "react"
-import {AnimatePresence, motion} from "framer-motion"
-import {wrap} from "popmotion"
+import {Slot} from "./slot"
 import {useInterval} from "./use-interval"
 
 const logos = [
@@ -46,117 +45,39 @@ const logos = [
     "imgs/zendesk_support.svg"
 ]
 
-const TRAVEL = 72
-const SCALING = 0.125
+const h1Styles = "text-7xl font-bold pointer-events-none"
 
-interface SlotProps {
-    delay: number | null
-    spin: "up" | "down"
-}
+const CYCLE = 1500
 
-function Slot({delay, spin}: SlotProps) {
-    const [page, setPage] = React.useState(0)
-    const [hovered, setHovered] = React.useState(false)
+const PAUSE = 4000
 
-    const imageIndex = wrap(0, logos.length, page)
+const ITEM = 250
 
-    const direction = spin === "up" ? -1 : 1
-
-    const spinit = (newDirection: number) => {
-        setPage(prev => prev + newDirection)
-    }
+export default function App() {
+    const [delay, setDelay] = React.useState<number | null>(ITEM)
+    const [hover, setHover] = React.useState(false)
 
     useInterval(
         () => {
-            spinit(direction)
+            if (delay) {
+                setDelay(null)
+            } else {
+                setDelay(ITEM)
+            }
         },
-        hovered ? null : delay
+        hover ? null : CYCLE
     )
-
-    return (
-        <div className="relative my-0 mx-4 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
-            <AnimatePresence initial={false} custom={direction}>
-                <motion.img
-                    key={page}
-                    src={logos[imageIndex]}
-                    custom={direction}
-                    className="absolute w-[4.5rem] hover:cursor:pointer"
-                    variants={{
-                        enter: (direction: number) => ({
-                            y: direction > 0 ? -TRAVEL : TRAVEL,
-                            scale: SCALING,
-                            zIndex: 0,
-                            opacity: 0
-                        }),
-                        center: {
-                            y: 0,
-                            scale: 1,
-                            zIndex: 1,
-                            opacity: 1
-                        },
-                        exit: (direction: number) => ({
-                            y: direction < 0 ? -TRAVEL : TRAVEL,
-                            scale: SCALING,
-                            zIndex: 0,
-                            opacity: 0
-                        }),
-                        hovered: {
-                            scale: 1.18,
-                            rotate: 6,
-                            transition: {
-                                type: "spring",
-                                stiffness: 350,
-                                // bounce: 0.2
-                                damping: 30
-                            }
-                        }
-                    }}
-                    transition={{
-                        ease: [0.25, 0.1, 0.25, 1],
-                        y: {type: "spring", stiffness: 350, damping: 30},
-                        opacity: {duration: 0.2}
-                    }}
-                    initial="enter"
-                    animate="center"
-                    exit="exit"
-                    onPointerOver={() => {
-                        setHovered(true)
-                    }}
-                    onPointerOut={() => {
-                        setHovered(false)
-                    }}
-                    whileHover="hovered"
-                />
-            </AnimatePresence>
-        </div>
-    )
-}
-
-const h1Styles = "text-7xl font-bold pointer-events-none"
-
-const CYCLE = 250
-
-export default function App() {
-    const [delay, setDelay] = React.useState<number | null>(CYCLE)
-
-    // useInterval(() => {
-    //     if (delay) {
-    //         setDelay(null)
-    //     } else {
-    //         setDelay(CYCLE)
-    //     }
-    // }, 1500)
 
     return (
         <div className="h-[80vh] grid place-content-center p-10 font-sans space-y-6">
             <div className="w-full flex items-center">
                 <h1 className={h1Styles}>Sync</h1>
 
-                <Slot spin="down" delay={delay} />
+                <Slot spin="down" delay={delay} hover={hover} setHover={setHover} />
 
                 <h1 className={h1Styles}>to</h1>
 
-                <Slot spin="up" delay={delay} />
+                <Slot spin="up" delay={delay} hover={hover} setHover={setHover} />
             </div>
 
             <h2 className="text-4xl text-gray-300 font-medium">
