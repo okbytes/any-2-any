@@ -76,58 +76,61 @@ function Slot({delay, spin}: SlotProps) {
     )
 
     return (
-        <AnimatePresence initial={false} custom={direction}>
-            <motion.img
-                key={page}
-                src={logos[imageIndex]}
-                custom={direction}
-                variants={{
-                    enter: (direction: number) => ({
-                        y: direction > 0 ? -TRAVEL : TRAVEL,
-                        scale: SCALING,
-                        zIndex: 0,
-                        opacity: 0
-                    }),
-                    center: {
-                        y: 0,
-                        scale: 1,
-                        zIndex: 1,
-                        opacity: 1
-                    },
-                    exit: (direction: number) => ({
-                        y: direction < 0 ? -TRAVEL : TRAVEL,
-                        scale: SCALING,
-                        zIndex: 0,
-                        opacity: 0
-                    }),
-                    hovered: {
-                        scale: 1.18,
-                        rotate: 6,
-                        transition: {
-                            type: "spring",
-                            stiffness: 350,
-                            // bounce: 0.2
-                            damping: 30
+        <div className="relative my-0 mx-2 w-[50px] h-[50px] hover:cursor-pointer">
+            <AnimatePresence initial={false} custom={direction}>
+                <motion.img
+                    key={page}
+                    src={logos[imageIndex]}
+                    custom={direction}
+                    className="absolute w-[50px] hover:cursor:pointer"
+                    variants={{
+                        enter: (direction: number) => ({
+                            y: direction > 0 ? -TRAVEL : TRAVEL,
+                            scale: SCALING,
+                            zIndex: 0,
+                            opacity: 0
+                        }),
+                        center: {
+                            y: 0,
+                            scale: 1,
+                            zIndex: 1,
+                            opacity: 1
+                        },
+                        exit: (direction: number) => ({
+                            y: direction < 0 ? -TRAVEL : TRAVEL,
+                            scale: SCALING,
+                            zIndex: 0,
+                            opacity: 0
+                        }),
+                        hovered: {
+                            scale: 1.18,
+                            rotate: 6,
+                            transition: {
+                                type: "spring",
+                                stiffness: 350,
+                                // bounce: 0.2
+                                damping: 30
+                            }
                         }
-                    }
-                }}
-                transition={{
-                    ease: [0.25, 0.1, 0.25, 1],
-                    y: {type: "spring", stiffness: 350, damping: 30},
-                    opacity: {duration: 0.2}
-                }}
-                initial="enter"
-                animate="center"
-                exit="exit"
-                onPointerOver={() => {
-                    setHovered(true)
-                }}
-                onPointerOut={() => {
-                    setHovered(false)
-                }}
-                whileHover="hovered"
-            />
-        </AnimatePresence>
+                    }}
+                    transition={{
+                        ease: [0.25, 0.1, 0.25, 1],
+                        y: {type: "spring", stiffness: 350, damping: 30},
+                        opacity: {duration: 0.2}
+                    }}
+                    initial="enter"
+                    animate="center"
+                    exit="exit"
+                    onPointerOver={() => {
+                        setHovered(true)
+                    }}
+                    onPointerOut={() => {
+                        setHovered(false)
+                    }}
+                    whileHover="hovered"
+                />
+            </AnimatePresence>
+        </div>
     )
 }
 
@@ -145,16 +148,15 @@ export default function App() {
     }, 1500)
 
     return (
-        <div className="App">
-            <div className="heading">
-                <h1>Any</h1>
-                <div className="slot">
-                    <Slot spin="down" delay={delay} />
-                </div>
-                <h1>to any</h1>
-                <div className="slot">
-                    <Slot spin="up" delay={delay} />
-                </div>
+        <div className="h-[35vh] grid place-content-center p-10 font-sans">
+            <div className="w-full flex items-center">
+                <h1 className="text-3xl font-semibold pointer-events-none">Any</h1>
+
+                <Slot spin="down" delay={delay} />
+
+                <h1 className="text-3xl font-semibold pointer-events-none">to any</h1>
+
+                <Slot spin="up" delay={delay} />
             </div>
         </div>
     )
