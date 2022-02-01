@@ -46,6 +46,91 @@ const logos = [
     "imgs/zendesk_support.svg"
 ]
 
+const left = [
+    "imgs/shipbob.svg",
+    "imgs/redshift.svg",
+    "imgs/intercom.svg",
+    "imgs/mysql.svg",
+    "imgs/gohighlevel.svg",
+    "imgs/postgresql.svg",
+    "imgs/livechat.svg",
+    "imgs/harmonic.svg",
+    "imgs/pipedrive.svg",
+    "imgs/bigquery.svg",
+    "imgs/freshdesk.svg",
+    "imgs/salesforce.svg",
+    "imgs/googleads.svg",
+    "imgs/affinity.svg",
+    "imgs/hubspot.svg",
+    "imgs/marketo.svg",
+    "imgs/api.svg",
+    "imgs/fbaudience.svg",
+    "imgs/iterable.svg",
+    "imgs/synapse.svg",
+    "imgs/klaviyo.svg",
+    "imgs/databricks.svg",
+    "imgs/amplitude.svg",
+    "imgs/stripe.svg",
+    "imgs/chargebee.svg",
+    "imgs/cosmosdb.svg",
+    "imgs/dynamodb.svg",
+    "imgs/smartsheet.svg",
+    "imgs/snowflake.svg",
+    "imgs/front.svg",
+    "imgs/awsathena.svg",
+    "imgs/azuresql.svg",
+    "imgs/airtable.svg",
+    "imgs/dialpad.svg",
+    "imgs/webhook.svg",
+    "imgs/gsheets.svg",
+    "imgs/segment.svg",
+    "imgs/csv.svg",
+    "imgs/zendesk_support.svg",
+    "imgs/mongodb.svg"
+]
+const right = [
+    "imgs/mysql.svg",
+    "imgs/stripe.svg",
+    "imgs/livechat.svg",
+    "imgs/googleads.svg",
+    "imgs/salesforce.svg",
+    "imgs/intercom.svg",
+    "imgs/smartsheet.svg",
+    "imgs/affinity.svg",
+    "imgs/harmonic.svg",
+    "imgs/mongodb.svg",
+    "imgs/marketo.svg",
+    "imgs/dialpad.svg",
+    "imgs/pipedrive.svg",
+    "imgs/synapse.svg",
+    "imgs/postgresql.svg",
+    "imgs/awsathena.svg",
+    "imgs/gsheets.svg",
+    "imgs/klaviyo.svg",
+    "imgs/airtable.svg",
+    "imgs/shipbob.svg",
+    "imgs/databricks.svg",
+    "imgs/segment.svg",
+    "imgs/hubspot.svg",
+    "imgs/snowflake.svg",
+    "imgs/chargebee.svg",
+    "imgs/dynamodb.svg",
+    "imgs/iterable.svg",
+    "imgs/freshdesk.svg",
+    "imgs/front.svg",
+    "imgs/azuresql.svg",
+    "imgs/api.svg",
+    "imgs/cosmosdb.svg",
+    "imgs/bigquery.svg",
+    "imgs/zendesk_support.svg",
+    "imgs/csv.svg",
+    "imgs/gohighlevel.svg",
+    "imgs/amplitude.svg",
+    "imgs/redshift.svg",
+    "imgs/fbaudience.svg",
+    "imgs/webhook.svg"
+]
+
 const TRAVEL = 72 // in px
 const TRAVEL_SCALE = 0.125 // % as decimal
 
@@ -58,10 +143,10 @@ interface SlotProps {
 
 export function Slot({delay, spin, hover, setHover}: SlotProps) {
     const [page, setPage] = React.useState(0)
+    const direction = spin === "up" ? -1 : 1
+    const logos = spin === "up" ? right : left
 
     const imageIndex = wrap(0, logos.length, page)
-
-    const direction = spin === "up" ? -1 : 1
 
     const paginate = (newDirection: number) => {
         setPage(prev => prev + newDirection)
