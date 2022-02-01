@@ -113,12 +113,12 @@ export const source = [
     "imgs/affinity.svg",
     "imgs/mongodb.svg",
     "imgs/awsathena.svg",
+    "imgs/salesforce.svg",
     "imgs/stripe.svg",
     "imgs/api.svg",
     "imgs/databricks.svg",
     "imgs/redshift.svg",
     "imgs/mysql.svg",
-    "imgs/salesforce.svg",
     "imgs/hubspot.svg",
     "imgs/dialpad.svg",
     "imgs/gsheets.svg",
@@ -152,5 +152,6 @@ export const destination = [
     "imgs/dynamodb.svg",
     "imgs/zendesk_support.svg",
     "imgs/redshift.svg",
+    "imgs/salesforce.svg",
     "imgs/snowflake.svg"
 ]
