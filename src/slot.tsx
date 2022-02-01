@@ -45,7 +45,7 @@ const logos = [
     "imgs/zendesk_support.svg"
 ]
 
-const left = [
+const sourceList = [
     "imgs/mysql.svg",
     "imgs/csv.svg",
     "imgs/stripe.svg",
@@ -86,7 +86,7 @@ const left = [
     "imgs/marketo.svg",
     "imgs/affinity.svg"
 ]
-const right = [
+const targetList = [
     "imgs/chargebee.svg",
     "imgs/freshdesk.svg",
     "imgs/amplitude.svg",
@@ -141,7 +141,7 @@ interface SlotProps {
 export function Slot({delay, spin, hover, setHover}: SlotProps) {
     const [page, setPage] = React.useState(0)
     const direction = spin === "up" ? -1 : 1
-    const logos = spin === "up" ? right : left
+    const logos = spin === "up" ? targetList : sourceList
 
     const imageIndex = wrap(0, logos.length, page)
 
