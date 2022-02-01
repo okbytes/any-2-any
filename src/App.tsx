@@ -4,51 +4,51 @@ import {wrap} from "popmotion"
 import {useInterval} from "./use-interval"
 
 const logos = [
-    "imgs/affinity.svg",
-    "imgs/airtable.svg",
-    "imgs/amplitude.svg",
-    "imgs/api.svg",
-    "imgs/awsathena.svg",
-    "imgs/azuresql.svg",
-    "imgs/bigquery.svg",
-    "imgs/chargebee.svg",
-    "imgs/cosmosdb.svg",
-    "imgs/csv.svg",
-    "imgs/databricks.svg",
-    "imgs/dialpad.svg",
-    "imgs/dynamodb.svg",
-    "imgs/fbaudience.svg",
-    "imgs/freshdesk.svg",
-    "imgs/front.svg",
-    "imgs/gohighlevel.svg",
-    "imgs/googleads.svg",
-    "imgs/gsheets.svg",
-    "imgs/harmonic.svg",
-    "imgs/hubspot.svg",
-    "imgs/intercom.svg",
-    "imgs/iterable.svg",
-    "imgs/klaviyo.svg",
-    "imgs/livechat.svg",
-    "imgs/marketo.svg",
-    "imgs/mongodb.svg",
-    "imgs/mysql.svg",
-    "imgs/pardot.svg",
-    "imgs/pipedrive.svg",
-    "imgs/polytomic.svg",
-    "imgs/postgresql.svg",
-    "imgs/redshift.svg",
-    "imgs/salesforce.svg",
-    "imgs/segment.svg",
-    "imgs/shipbob.svg",
-    "imgs/smartsheet.svg",
-    "imgs/snowflake.svg",
-    "imgs/stripe.svg",
-    "imgs/synapse.svg",
-    "imgs/webhook.svg",
-    "imgs/zendesk_support.svg"
+    "imgs/logos-01.svg",
+    "imgs/logos-02.svg",
+    "imgs/logos-03.svg",
+    "imgs/logos-04.svg",
+    "imgs/logos-05.svg",
+    "imgs/logos-06.svg",
+    "imgs/logos-07.svg",
+    "imgs/logos-08.svg",
+    "imgs/logos-09.svg",
+    "imgs/logos-10.svg",
+    "imgs/logos-11.svg",
+    "imgs/logos-12.svg",
+    "imgs/logos-13.svg",
+    "imgs/logos-14.svg",
+    "imgs/logos-15.svg",
+    "imgs/logos-16.svg",
+    "imgs/logos-17.svg",
+    "imgs/logos-18.svg",
+    "imgs/logos-19.svg",
+    "imgs/logos-20.svg",
+    "imgs/logos-21.svg",
+    "imgs/logos-22.svg",
+    "imgs/logos-23.svg",
+    "imgs/logos-24.svg",
+    "imgs/logos-25.svg",
+    "imgs/logos-26.svg",
+    "imgs/logos-27.svg",
+    "imgs/logos-28.svg",
+    "imgs/logos-29.svg",
+    "imgs/logos-30.svg",
+    "imgs/logos-31.svg",
+    "imgs/logos-32.svg",
+    "imgs/logos-33.svg",
+    "imgs/logos-34.svg",
+    "imgs/logos-35.svg",
+    "imgs/logos-36.svg",
+    "imgs/logos-37.svg",
+    "imgs/logos-38.svg",
+    "imgs/logos-39.svg",
+    "imgs/logos-40.svg",
+    "imgs/logos-41.svg",
+    "imgs/logos-42.svg"
 ]
 
-const travel = 50
+const TRAVEL = 50
 
 interface SlotProps {
     delay: number | null
@@ -82,7 +82,7 @@ function Slot({delay, spin}: SlotProps) {
                 custom={direction}
                 variants={{
                     enter: (direction: number) => ({
-                        y: direction > 0 ? -travel : travel,
+                        y: direction > 0 ? -TRAVEL : TRAVEL,
                         zIndex: 0,
                         opacity: 0
                     }),
@@ -92,7 +92,7 @@ function Slot({delay, spin}: SlotProps) {
                         opacity: 1
                     },
                     exit: (direction: number) => ({
-                        y: direction < 0 ? -travel : travel,
+                        y: direction < 0 ? -TRAVEL : TRAVEL,
                         zIndex: 0,
                         opacity: 0
                     }),
@@ -126,16 +126,16 @@ function Slot({delay, spin}: SlotProps) {
     )
 }
 
-const cycle = 215
+const CYCLE = 215
 
 export default function App() {
-    const [delay, setDelay] = React.useState<number | null>(cycle)
+    const [delay, setDelay] = React.useState<number | null>(CYCLE)
 
     useInterval(() => {
         if (delay) {
             setDelay(null)
         } else {
-            setDelay(cycle)
+            setDelay(CYCLE)
         }
     }, 1500)
 
