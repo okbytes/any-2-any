@@ -126,14 +126,16 @@ function Slot({delay, spin}: SlotProps) {
     )
 }
 
+const cycle = 215
+
 export default function App() {
-    const [delay, setDelay] = React.useState<number | null>(375)
+    const [delay, setDelay] = React.useState<number | null>(cycle)
 
     useInterval(() => {
         if (delay) {
             setDelay(null)
         } else {
-            setDelay(375)
+            setDelay(cycle)
         }
     }, 1500)
 
