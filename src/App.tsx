@@ -32,9 +32,7 @@ const logos = [
     "imgs/marketo.svg",
     "imgs/mongodb.svg",
     "imgs/mysql.svg",
-    "imgs/pardot.svg",
     "imgs/pipedrive.svg",
-    "imgs/polytomic.svg",
     "imgs/postgresql.svg",
     "imgs/redshift.svg",
     "imgs/salesforce.svg",
@@ -48,7 +46,7 @@ const logos = [
     "imgs/zendesk_support.svg"
 ]
 
-const TRAVEL = 50
+const TRAVEL = 72
 const SCALING = 0.125
 
 interface SlotProps {
@@ -76,13 +74,13 @@ function Slot({delay, spin}: SlotProps) {
     )
 
     return (
-        <div className="relative my-0 mx-2 w-[50px] h-[50px] hover:cursor-pointer">
+        <div className="relative my-0 mx-4 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
             <AnimatePresence initial={false} custom={direction}>
                 <motion.img
                     key={page}
                     src={logos[imageIndex]}
                     custom={direction}
-                    className="absolute w-[50px] hover:cursor:pointer"
+                    className="absolute w-[4.5rem] hover:cursor:pointer"
                     variants={{
                         enter: (direction: number) => ({
                             y: direction > 0 ? -TRAVEL : TRAVEL,
@@ -134,30 +132,36 @@ function Slot({delay, spin}: SlotProps) {
     )
 }
 
+const h1Styles = "text-7xl font-bold pointer-events-none"
+
 const CYCLE = 250
 
 export default function App() {
     const [delay, setDelay] = React.useState<number | null>(CYCLE)
 
-    useInterval(() => {
-        if (delay) {
-            setDelay(null)
-        } else {
-            setDelay(CYCLE)
-        }
-    }, 1500)
+    // useInterval(() => {
+    //     if (delay) {
+    //         setDelay(null)
+    //     } else {
+    //         setDelay(CYCLE)
+    //     }
+    // }, 1500)
 
     return (
-        <div className="h-[35vh] grid place-content-center p-10 font-sans">
+        <div className="h-[80vh] grid place-content-center p-10 font-sans space-y-6">
             <div className="w-full flex items-center">
-                <h1 className="text-3xl font-semibold pointer-events-none">Any</h1>
+                <h1 className={h1Styles}>Sync</h1>
 
                 <Slot spin="down" delay={delay} />
 
-                <h1 className="text-3xl font-semibold pointer-events-none">to any</h1>
+                <h1 className={h1Styles}>to</h1>
 
                 <Slot spin="up" delay={delay} />
             </div>
+
+            <h2 className="text-4xl text-gray-300 font-medium">
+                The one platform to sync any data anywhere.
+            </h2>
         </div>
     )
 }
