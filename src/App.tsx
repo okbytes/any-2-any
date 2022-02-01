@@ -49,6 +49,7 @@ const logos = [
 ]
 
 const TRAVEL = 50
+const SCALING = 0.125
 
 interface SlotProps {
     delay: number | null
@@ -83,16 +84,19 @@ function Slot({delay, spin}: SlotProps) {
                 variants={{
                     enter: (direction: number) => ({
                         y: direction > 0 ? -TRAVEL : TRAVEL,
+                        scale: SCALING,
                         zIndex: 0,
                         opacity: 0
                     }),
                     center: {
                         y: 0,
+                        scale: 1,
                         zIndex: 1,
                         opacity: 1
                     },
                     exit: (direction: number) => ({
                         y: direction < 0 ? -TRAVEL : TRAVEL,
+                        scale: SCALING,
                         zIndex: 0,
                         opacity: 0
                     }),
@@ -108,6 +112,7 @@ function Slot({delay, spin}: SlotProps) {
                     }
                 }}
                 transition={{
+                    ease: [0.25, 0.1, 0.25, 1],
                     y: {type: "spring", stiffness: 350, damping: 30},
                     opacity: {duration: 0.2}
                 }}
@@ -126,7 +131,7 @@ function Slot({delay, spin}: SlotProps) {
     )
 }
 
-const CYCLE = 215
+const CYCLE = 250
 
 export default function App() {
     const [delay, setDelay] = React.useState<number | null>(CYCLE)
