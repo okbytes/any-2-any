@@ -28,7 +28,6 @@ const logos = [
     "imgs/intercom.svg",
     "imgs/iterable.svg",
     "imgs/klaviyo.svg",
-    "imgs/livechat.svg",
     "imgs/marketo.svg",
     "imgs/mongodb.svg",
     "imgs/mysql.svg",
@@ -53,7 +52,6 @@ const left = [
     "imgs/mysql.svg",
     "imgs/gohighlevel.svg",
     "imgs/postgresql.svg",
-    "imgs/livechat.svg",
     "imgs/harmonic.svg",
     "imgs/pipedrive.svg",
     "imgs/bigquery.svg",
@@ -91,7 +89,6 @@ const left = [
 const right = [
     "imgs/mysql.svg",
     "imgs/stripe.svg",
-    "imgs/livechat.svg",
     "imgs/googleads.svg",
     "imgs/salesforce.svg",
     "imgs/intercom.svg",
