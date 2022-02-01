@@ -4,9 +4,10 @@ import {useInterval} from "./use-interval"
 
 const h1Styles = "text-7xl font-bold pointer-events-none"
 
-const MS_CYCLE = 1500 // in ms
-const MS_PAUSE = 4000 // in ms
+const ITEMS_IN_CYCLE = 4
 const MS_ITEM = 250 // in ms
+const MS_CYCLE = MS_ITEM * ITEMS_IN_CYCLE // in ms
+const MS_PAUSE = 4000 // in ms
 
 const PAUSE = {item: null, main: MS_PAUSE, type: "pause"}
 const CYCLE = {item: MS_ITEM, main: MS_CYCLE, type: "cycle"}
