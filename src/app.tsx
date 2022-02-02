@@ -28,11 +28,11 @@ export default function App() {
                         <p className="text-gray-300 font-semibold">Customers</p>
                         <p className="text-gray-300 font-semibold">Resources</p>
                         <div className="space-x-2">
-                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold bg-indigo-600">
+                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold text-sm bg-indigo-600">
                                 Get a demo
                             </button>
 
-                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold bg-gray-800">
+                            <button className="h-8 px-3 border-2 border-indigo-600 rounded text-white font-semibold text-sm bg-gray-800">
                                 Log in
                             </button>
                         </div>
