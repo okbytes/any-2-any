@@ -1,4 +1,5 @@
 import * as React from "react"
+
 import {Slot} from "./slot"
 import {useInterval} from "./use-interval"
 
@@ -18,12 +19,6 @@ export function Hero() {
     const [delay, setDelay] = React.useState<typeof PAUSE | typeof CYCLE>(CYCLE)
     const [hover, setHover] = React.useState(false)
 
-    React.useEffect(() => {
-        if (hover) {
-            setDelay(PAUSE)
-        }
-    }, [hover])
-
     useInterval(
         () => {
             if (delay.type === "cycle") {
@@ -34,6 +29,13 @@ export function Hero() {
         },
         hover ? null : delay.main
     )
+
+    React.useEffect(() => {
+        if (hover) {
+            setDelay(PAUSE)
+        }
+    }, [hover])
+
     return (
         <div className="w-full flex items-center">
             <h1 className={h1Styles}>Sync</h1>
@@ -41,8 +43,7 @@ export function Hero() {
             <Slot
                 logos={source}
                 direction={1}
-                delay={delay.item}
-                hover={hover}
+                delay={hover ? null : delay.item}
                 setHover={setHover}
             />
 
@@ -51,8 +52,7 @@ export function Hero() {
             <Slot
                 logos={destination}
                 direction={-1}
-                delay={delay.item}
-                hover={hover}
+                delay={hover ? null : delay.item}
                 setHover={setHover}
             />
         </div>

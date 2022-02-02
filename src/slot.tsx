@@ -13,25 +13,17 @@ interface SlotProps {
     delay: number | null
     direction: 1 | -1
     logos: string[]
-    hover: boolean
     setHover: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function Slot({delay, direction, logos, hover, setHover}: SlotProps) {
+export function Slot({delay, direction, logos, setHover}: SlotProps) {
     const [page, setPage] = React.useState(0)
 
     const imageIndex = wrap(0, logos.length, page)
 
-    const paginate = (newDirection: number) => {
-        setPage(prev => prev + newDirection)
-    }
-
-    useInterval(
-        () => {
-            paginate(direction)
-        },
-        hover ? null : delay
-    )
+    useInterval(() => {
+        setPage(prev => prev + direction)
+    }, delay)
 
     return (
         <div className="relative my-0 mx-6 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
