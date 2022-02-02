@@ -1,9 +1,11 @@
 import * as React from "react"
 import {AnimatePresence, motion} from "framer-motion"
 import {wrap} from "popmotion"
+
 import {useInterval} from "./use-interval"
 
-import {source, destination} from "./graphics"
+import {source, destination} from "./data"
+import {svgSymbols} from "./svg-symbols"
 
 const TRAVEL = 72 // in px
 const TRAVEL_SCALE = 0.125 // % as decimal
@@ -36,28 +38,27 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
     return (
         <div className="relative my-0 mx-6 w-[4.5rem] h-[4.5rem] hover:cursor-pointer">
             <AnimatePresence initial={false} custom={direction}>
-                <motion.img
+                <motion.svg
                     key={page}
-                    src={logos[imageIndex]}
+                    xmlns="http://www.w3.org/2000/svg"
+                    // src={logos[imageIndex]}
+                    viewBox="0 0 20 20"
                     custom={direction}
-                    className="absolute w-[4.5rem] hover:cursor:pointer"
+                    className="absolute w-[4.5rem] h-[4.5rem] hover:cursor:pointer"
                     variants={{
                         enter: (direction: number) => ({
                             y: direction > 0 ? -TRAVEL : TRAVEL,
                             scale: TRAVEL_SCALE,
-                            zIndex: 0,
                             opacity: 0
                         }),
                         center: {
                             y: 0,
                             scale: 1,
-                            zIndex: 1,
                             opacity: 1
                         },
                         exit: (direction: number) => ({
                             y: direction < 0 ? -TRAVEL : TRAVEL,
                             scale: TRAVEL_SCALE,
-                            zIndex: 0,
                             opacity: 0
                         }),
                         hovered: {
@@ -86,7 +87,10 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
                         setHover(false)
                     }}
                     whileHover="hovered"
-                />
+                >
+                    {svgSymbols}
+                    <use href={`#${logos[imageIndex]}`} />
+                </motion.svg>
             </AnimatePresence>
         </div>
     )
