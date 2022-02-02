@@ -2,7 +2,8 @@ import * as React from "react"
 import {AnimatePresence, motion} from "framer-motion"
 import {wrap} from "popmotion"
 import {useInterval} from "./use-interval"
-import {destination, source} from "./data"
+
+import {source, destination} from "./graphics"
 
 const TRAVEL = 72 // in px
 const TRAVEL_SCALE = 0.125 // % as decimal

@@ -1,6 +1,8 @@
 import * as React from "react"
 import {Slot} from "./slot"
 import {useInterval} from "./use-interval"
+import poly from "./assets/polytomic.svg"
+import waves from "./assets/waves.svg"
 
 const h1Styles = "text-7xl font-bold pointer-events-none"
 
@@ -37,7 +39,7 @@ export default function App() {
         <>
             <div className="px-10 mx-auto max-w-5xl">
                 <nav className="mb-20 py-8 flex items-center justify-between">
-                    <img src="/assets/polytomic.svg" className="w-8 h-8" />
+                    <img src={poly} className="w-8 h-8" />
                     <div className="flex items-center space-x-6">
                         <p className="text-gray-300 font-semibold">Product</p>
                         <p className="text-gray-300 font-semibold">Use cases</p>
@@ -81,7 +83,7 @@ export default function App() {
                     </div>
                 </div>
             </div>
-            <img src="/assets/waves.svg" className="w-full" />
+            <img src={waves} className="w-full" />
         </>
     )
 }
