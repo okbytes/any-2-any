@@ -1,55 +1,55 @@
 export const source = [
-    "postgresql",
+    "postgresql", // pause
     "affinity",
     "airtable",
     "amplitude",
-    "api",
+    "api", // pause
     "awsathena",
     "azuresql",
     "bigquery",
-    "chargebee",
+    "chargebee", // pause
     "cosmosdb",
     "csv",
     "databricks",
-    "dialpad",
+    "dialpad", // pause
     "dynamodb",
     "gohighlevel",
     "gsheets",
-    "harmonic",
+    "harmonic", // pause
     "hubspot",
     "mongodb",
     "mysql",
-    "redshift",
+    "redshift", // pause
     "salesforce",
     "snowflake",
     "stripe",
-    "synapse"
+    "synapse" // pause
 ]
 
 export const destination = [
-    "salesforce",
+    "salesforce", // pause
     "zendesk",
     "webhook",
     "stripe",
-    "snowflake",
+    "snowflake", // pause
+    "redshift",
     "smartsheet",
     "segment",
-    "redshift",
-    "postgresql",
+    "postgresql", // pause
     "pipedrive",
     "mysql",
     "marketo",
-    "klaviyo",
+    "klaviyo", // pause
     "iterable",
     "intercom",
     "hubspot",
-    "gsheets",
+    "gsheets", // pause
     "googleads",
     "freshdesk",
-    "fbaudience",
     "dynamodb",
+    "fbaudience", // pause
     "bigquery",
     "amplitude",
     "airtable",
-    "affinity"
+    "affinity" // pause
 ]
