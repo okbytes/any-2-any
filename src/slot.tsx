@@ -4,7 +4,6 @@ import {wrap} from "popmotion"
 
 import {useInterval} from "./use-interval"
 
-import {source, destination} from "./data"
 import {svgSymbols} from "./svg-symbols"
 
 const TRAVEL = 72 // in px
@@ -12,15 +11,14 @@ const TRAVEL_SCALE = 0.125 // % as decimal
 
 interface SlotProps {
     delay: number | null
-    spin: "up" | "down"
+    direction: 1 | -1
+    logos: string[]
     hover: boolean
     setHover: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-export function Slot({delay, spin, hover, setHover}: SlotProps) {
+export function Slot({delay, direction, logos, hover, setHover}: SlotProps) {
     const [page, setPage] = React.useState(0)
-    const direction = spin === "up" ? -1 : 1
-    const logos = spin === "up" ? destination : source
 
     const imageIndex = wrap(0, logos.length, page)
 
