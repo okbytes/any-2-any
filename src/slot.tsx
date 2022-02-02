@@ -41,7 +41,6 @@ export function Slot({delay, spin, hover, setHover}: SlotProps) {
                 <motion.svg
                     key={page}
                     xmlns="http://www.w3.org/2000/svg"
-                    // src={logos[imageIndex]}
                     viewBox="0 0 20 20"
                     custom={direction}
                     className="absolute w-[4.5rem] h-[4.5rem] hover:cursor:pointer"
