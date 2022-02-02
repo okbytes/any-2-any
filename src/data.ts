@@ -1,43 +1,3 @@
-const logos = [
-    "affinity",
-    "airtable",
-    "amplitude",
-    "api",
-    "awsathena",
-    "azuresql",
-    "bigquery",
-    "chargebee",
-    "cosmosdb",
-    "csv",
-    "databricks",
-    "dialpad",
-    "dynamodb",
-    "fbaudience",
-    "freshdesk",
-    "front",
-    "gohighlevel",
-    "googleads",
-    "gsheets",
-    "harmonic",
-    "hubspot",
-    "intercom",
-    "iterable",
-    "klaviyo",
-    "marketo",
-    "mongodb",
-    "mysql",
-    "pipedrive",
-    "postgresql",
-    "redshift",
-    "salesforce",
-    "segment",
-    "smartsheet",
-    "snowflake",
-    "stripe",
-    "synapse",
-    "webhook",
-    "zendesk"
-]
 export const source = [
     "affinity",
     "airtable",
@@ -65,6 +25,7 @@ export const source = [
     "stripe",
     "synapse"
 ]
+
 export const destination = [
     "affinity",
     "airtable",
