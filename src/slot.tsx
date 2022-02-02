@@ -22,7 +22,7 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
     const imageIndex = wrap(0, logos.length, page)
 
     useInterval(() => {
-        setPage(prev => prev + direction)
+        setPage(prev => prev + 1)
     }, delay)
 
     return (
