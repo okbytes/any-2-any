@@ -1,4 +1,5 @@
 export const source = [
+    "postgresql",
     "affinity",
     "airtable",
     "amplitude",
@@ -18,7 +19,6 @@ export const source = [
     "hubspot",
     "mongodb",
     "mysql",
-    "postgresql",
     "redshift",
     "salesforce",
     "snowflake",
@@ -27,6 +27,7 @@ export const source = [
 ]
 
 export const destination = [
+    "salesforce",
     "affinity",
     "airtable",
     "amplitude",
@@ -34,7 +35,6 @@ export const destination = [
     "dynamodb",
     "fbaudience",
     "freshdesk",
-    "front",
     "googleads",
     "gsheets",
     "hubspot",
@@ -46,7 +46,6 @@ export const destination = [
     "pipedrive",
     "postgresql",
     "redshift",
-    "salesforce",
     "segment",
     "smartsheet",
     "snowflake",
