@@ -1,6 +1,5 @@
 import * as React from "react"
 import {AnimatePresence, motion} from "framer-motion"
-import {wrap} from "popmotion"
 
 import {useInterval} from "./use-interval"
 
@@ -83,4 +82,9 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
             </AnimatePresence>
         </div>
     )
+}
+
+function wrap(min: number, max: number, v: number) {
+    const rangeSize = max - min
+    return ((((v - min) % rangeSize) + rangeSize) % rangeSize) + min
 }
