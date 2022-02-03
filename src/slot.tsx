@@ -5,8 +5,8 @@ import {useInterval} from "./use-interval"
 
 import {svgSymbols} from "./svg-symbols"
 
-const TRAVEL = 72 // in px
-const TRAVEL_SCALE = 0.125 // % as decimal
+const TRAVEL = 36 // in px
+const TRAVEL_SCALE = 0.667 // % as decimal
 
 interface SlotProps {
     delay: number | null
@@ -74,10 +74,7 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
                     }}
                     whileHover="hovered"
                 >
-                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20">
-                        {svgSymbols}
-                        <use href={`#${logos[imageIndex]}`} />
-                    </svg>
+                    {svgSymbols(logos[imageIndex])}
                 </motion.div>
             </AnimatePresence>
         </div>

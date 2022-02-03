@@ -44,7 +44,7 @@ export const destination = [
     "intercom",
     "hubspot",
     "gsheets", // cycle 1
-    "googleads",
+    "googas",
     "freshdesk",
     "dynamodb",
     "fbaudience", // cycle 1

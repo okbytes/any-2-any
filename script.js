@@ -50,7 +50,7 @@ const destinations = [
     "fbaudience",
     "freshdesk",
     "front",
-    "googleads",
+    "googas",
     "gsheets",
     "hubspot",
     "intercom",
