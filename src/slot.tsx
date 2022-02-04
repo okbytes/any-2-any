@@ -3,9 +3,9 @@ import {AnimatePresence, motion} from "framer-motion"
 
 import {useInterval} from "./use-interval"
 
-import {svgSymbols} from "./svg-symbols"
+import {Svgs} from "./svg-symbols"
 
-const TRAVEL = 36 // in px
+const DISTANCE = 36 // in px
 const TRAVEL_SCALE = 0.667 // % as decimal
 
 interface SlotProps {
@@ -33,7 +33,7 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
                     className="absolute w-[4.5rem] h-[4.5rem] hover:cursor:pointer"
                     variants={{
                         enter: (direction: number) => ({
-                            y: direction > 0 ? -TRAVEL : TRAVEL,
+                            y: direction > 0 ? -DISTANCE : DISTANCE,
                             scale: TRAVEL_SCALE,
                             opacity: 0
                         }),
@@ -43,7 +43,7 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
                             opacity: 1
                         },
                         exit: (direction: number) => ({
-                            y: direction < 0 ? -TRAVEL : TRAVEL,
+                            y: direction < 0 ? -DISTANCE : DISTANCE,
                             scale: TRAVEL_SCALE,
                             opacity: 0
                         }),
@@ -53,14 +53,12 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
                             transition: {
                                 type: "spring",
                                 stiffness: 350,
-                                // bounce: 0.2
                                 damping: 30
                             }
                         }
                     }}
                     transition={{
                         ease: [0.25, 0.1, 0.25, 1],
-                        y: {type: "spring", stiffness: 350, damping: 30},
                         opacity: {duration: 0.2}
                     }}
                     initial="enter"
@@ -74,7 +72,7 @@ export function Slot({delay, direction, logos, setHover}: SlotProps) {
                     }}
                     whileHover="hovered"
                 >
-                    {svgSymbols(logos[imageIndex])}
+                    <Svgs logo={logos[imageIndex]} />
                 </motion.div>
             </AnimatePresence>
         </div>
